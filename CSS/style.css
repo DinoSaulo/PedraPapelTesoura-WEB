@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,700');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #24272E;
+}
+
+header {
+    background-color: white;
+    padding: 20px;
+}
+
+header > h1 {
+    color: #25272E;
+    text-align: center;
+    font-family: Asap, sans-serif;
+}
