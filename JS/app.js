@@ -9,6 +9,9 @@ const result_p = document.querySelector(".result > p");
 const pedra_div = document.getElementById("r");
 const papel_div = document.getElementById("p");
 const tesoura_div = document.getElementById("s");
+const pequenaPalavraUsuario = "(você)".fontsize(3).sub();
+const pequenaPalavraComputador = "(Computador)".fontsize(3).sub();
+const tempoCorDaJogada = 500;
 
 function getEscolhaComputador() {
     const opcoes = ['r', 'p', 's'];
@@ -21,7 +24,7 @@ function atualizarPontuacao() {
     pontuacaoComputador_span.innerHTML = pontuacaoComputador;
 }
 
-function converter(letra){
+function converterParaPalavra(letra){
     if(letra === "r")
         return "Pedra";
     if(letra === "p")
@@ -34,19 +37,28 @@ function ganhou (escolhaDoUsuario, escolhaDoComputador) {
     pontuacaoUsuario++;
     atualizarPontuacao();
     console.log("GANHOU - Pontuação total => VC:" + pontuacaoUsuario + " PC:" + pontuacaoComputador);
-    result_p.innerHTML = converter(escolhaDoUsuario) + " ganha de " + converter(escolhaDoComputador) + ". Você ganhou!!"
+    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)}${pequenaPalavraUsuario} ganha de ${converterParaPalavra(escolhaDoComputador)}${pequenaPalavraComputador}. Você ganhou!!`;
+    const escolhaDoUsuario_div = document.getElementById(escolhaDoUsuario);
+    escolhaDoUsuario_div.classList.add('green-glow');
+    setTimeout( () => escolhaDoUsuario_div.classList.remove('green-glow') , tempoCorDaJogada);
 }
 
 function perdeu (escolhaDoUsuario, escolhaDoComputador) {
     pontuacaoComputador++;
     atualizarPontuacao();
     console.log("PERDEU - Pontuação total => VC:" + pontuacaoUsuario + " PC:" + pontuacaoComputador);
-    result_p.innerHTML = converter(escolhaDoUsuario) + " perde para " + converter(escolhaDoComputador) + ". Você perdeu!!"
+    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)}${pequenaPalavraUsuario} perde para ${converterParaPalavra(escolhaDoComputador)}${pequenaPalavraComputador}. Você perdeu!!`;
+    const escolhaDoUsuario_div = document.getElementById(escolhaDoUsuario);
+    escolhaDoUsuario_div.classList.add('red-glow');
+    setTimeout( () => escolhaDoUsuario_div.classList.remove('red-glow') , tempoCorDaJogada)
 }
 
 function empatou (escolhaDoUsuario, escolhaDoComputador) {
     console.log("EMPATE - Pontuação total => VC:" + pontuacaoUsuario + " PC:" + pontuacaoComputador);
-    result_p.innerHTML = converter(escolhaDoUsuario) + " empata com " + converter(escolhaDoComputador) + ". Você empatou!!"
+    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)}${pequenaPalavraUsuario} empata com ${converterParaPalavra(escolhaDoComputador)}${pequenaPalavraComputador}. Você empatou!!`;
+    const escolhaDoUsuario_div = document.getElementById(escolhaDoUsuario);
+    escolhaDoUsuario_div.classList.add('gray-glow');
+    setTimeout( () => escolhaDoUsuario_div.classList.remove('gray-glow') , tempoCorDaJogada);
 }
 
 function game(escolhaDoUsuario){
