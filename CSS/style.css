@@ -66,7 +66,7 @@ header > h1 {
 }
 
 .choices {
-    margin: 50px 0px;
+    margin-top: 50px;
     text-align: center;
     
 }
@@ -83,4 +83,13 @@ header > h1 {
 .choice:hover {
     background-color: whitesmoke;
     cursor: pointer;
+}
+
+#action-mensage {
+    text-align: center;
+    color: white;
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
 }
