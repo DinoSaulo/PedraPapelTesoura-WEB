@@ -1,6 +1,7 @@
 console.log("Funcionando");
 
-let pontuacaoUsuario = 0;
+let pontuacaoUsuario = 1;
+pontuacaoUsuario = 0;
 let pontuacaoComputador = 0;
 const pontuacaoUsuario_span = document.getElementById("user-score");
 const pontuacaoComputador_span = document.getElementById("computer-score");
