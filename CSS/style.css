@@ -80,9 +80,11 @@ header > h1 {
     transition: all 0.3s ease;
 }
 
-.choice:hover {
-    background-color: whitesmoke;
-    cursor: pointer;
+.choice {
+        :hover {
+        background-color: whitesmoke;
+        cursor: pointer;
+    }
 }
 
 #action-mensage {
