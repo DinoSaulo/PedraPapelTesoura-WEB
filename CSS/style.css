@@ -96,6 +96,7 @@ header {
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .green-glow {
@@ -111,4 +112,21 @@ header {
 .gray-glow {
     border: 4px solid #464647;
     box-shadow: 0 0 10px #25292b;
+}
+
+.pequenaPalavraUsuario {
+    display: inline;
+    position: relative;
+    top: 26px;
+    font-size: 18px;
+    margin-left: -50px;
+}
+
+.pequenaPalavraComputador {
+    display: inline;
+    position:  relative;
+    top: 26px;
+    font-size: 18px;
+    margin-left: -80px;
+    left: -30px;
 }

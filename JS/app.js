@@ -10,8 +10,8 @@ const result_p = document.querySelector(".result > p");
 const pedra_div = document.getElementById("r");
 const papel_div = document.getElementById("p");
 const tesoura_div = document.getElementById("s");
-const pequenaPalavraUsuario = "(você)".fontsize(3).sub();
-const pequenaPalavraComputador = "(Computador)".fontsize(3).sub();
+const pequenaPalavraUsuario = "<div class='pequenaPalavraUsuario'>(você)</div>";
+const pequenaPalavraComputador = "<div class='pequenaPalavraComputador'>(Computador)</div>";
 const tempoCorDaJogada = 500;
 
 function getEscolhaComputador() {
@@ -34,11 +34,20 @@ function converterParaPalavra(letra){
         return "Tesoura";   
 }
 
+function converterParaImagemPequena(letra){
+    if(letra === "r")
+        return "<img src='images/rock.png' width='40'>";
+    if(letra === "p")
+        return "<img src='images/paper.png' width='40'>";
+    if(letra === "s")
+        return "<img src='images/scissors.png' width='40'>";
+}
+
 function ganhou (escolhaDoUsuario, escolhaDoComputador) {
     pontuacaoUsuario++;
     atualizarPontuacao();
     console.log("GANHOU - Pontuação total => VC:" + pontuacaoUsuario + " PC:" + pontuacaoComputador);
-    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)}${pequenaPalavraUsuario} ganha de ${converterParaPalavra(escolhaDoComputador)}${pequenaPalavraComputador}. Você ganhou!!`;
+    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)} ${converterParaImagemPequena(escolhaDoUsuario)}${pequenaPalavraUsuario} ganha de ${converterParaPalavra(escolhaDoComputador)} ${converterParaImagemPequena(escolhaDoComputador)}${pequenaPalavraComputador}<br><br>Você ganhou!!`;
     const escolhaDoUsuario_div = document.getElementById(escolhaDoUsuario);
     escolhaDoUsuario_div.classList.add('green-glow');
     setTimeout( () => escolhaDoUsuario_div.classList.remove('green-glow') , tempoCorDaJogada);
@@ -48,7 +57,7 @@ function perdeu (escolhaDoUsuario, escolhaDoComputador) {
     pontuacaoComputador++;
     atualizarPontuacao();
     console.log("PERDEU - Pontuação total => VC:" + pontuacaoUsuario + " PC:" + pontuacaoComputador);
-    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)}${pequenaPalavraUsuario} perde para ${converterParaPalavra(escolhaDoComputador)}${pequenaPalavraComputador}. Você perdeu!!`;
+    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)} ${converterParaImagemPequena(escolhaDoUsuario)}${pequenaPalavraUsuario} perde para ${converterParaPalavra(escolhaDoComputador)} ${converterParaImagemPequena(escolhaDoComputador)}${pequenaPalavraComputador}<br><br>Você perdeu!!`;
     const escolhaDoUsuario_div = document.getElementById(escolhaDoUsuario);
     escolhaDoUsuario_div.classList.add('red-glow');
     setTimeout( () => escolhaDoUsuario_div.classList.remove('red-glow') , tempoCorDaJogada)
@@ -56,7 +65,7 @@ function perdeu (escolhaDoUsuario, escolhaDoComputador) {
 
 function empatou (escolhaDoUsuario, escolhaDoComputador) {
     console.log("EMPATE - Pontuação total => VC:" + pontuacaoUsuario + " PC:" + pontuacaoComputador);
-    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)}${pequenaPalavraUsuario} empata com ${converterParaPalavra(escolhaDoComputador)}${pequenaPalavraComputador}. Você empatou!!`;
+    result_p.innerHTML = `${converterParaPalavra(escolhaDoUsuario)} ${converterParaImagemPequena(escolhaDoUsuario)}${pequenaPalavraUsuario} empata com ${converterParaPalavra(escolhaDoComputador)} ${converterParaImagemPequena(escolhaDoComputador)}${pequenaPalavraComputador}<br><br>Você empatou!!`;
     const escolhaDoUsuario_div = document.getElementById(escolhaDoUsuario);
     escolhaDoUsuario_div.classList.add('gray-glow');
     setTimeout( () => escolhaDoUsuario_div.classList.remove('gray-glow') , tempoCorDaJogada);
